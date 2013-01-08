@@ -12,7 +12,7 @@ OpenID Connect is a suite of lightweight specifications that provide a framework
 OpenID Connect performs many of the same tasks as OpenID 2.0, but does so in a way that is API-friendly. OpenID Connect can also be extended to include more robust mechanisms for signing and encryption. Integration of OAuth 1.0a and OpenID 2.0 required an extension (called the OpenID/OAuth hybrid); in OpenID Connect, OAuth 2.0 capability is built into the protocol itself.
 
 ##OpenID-Connect (my definition)
-It's OAuth 2.0, but acts like an OpenID. i.e. App-developers implement it virtually like they would do for OAuth 2.0, but the consumer will see it work like an openID.
+It's OAuth 2.0, but acts like an OpenID. i.e. App-developers implement it just like we would do for OAuth 2.0, but the consumer will see it work like an openID.
 
 ##OpenID-Connect (High-level steps):
 1. Perform OAuth 2.0 as usual. And after authentication dance, your app will get an `access_token`, a `refresh_token` just like in OAuth 2.0 but in addition an extra token called `token_id`.  
@@ -39,7 +39,7 @@ In essence, Cloud Foundry UAA provides mainly OAuth 2.0 but supports a slight-va
 0. Register your app to only have scope `openid` or during OAuth 2.0 dance, send `{scope: 'oauth.2.0'}`.
 1. Perform OAuth 2.0 as usual. And after authentication dance, your app will get an `access_token`, a `refresh_token` just like in OAuth 2.0 ~~but in addition an extra token called `token_id`~~.  `access_token` itself acts similar to `token_id`.
 
-2. Then, we must take the ~~`token_id`~~ `access_token` and decode it & validate couple of things mentioned here [OpenID draft-spec draft 22 id.token.validation](http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation). 
+2. Then, we must take the ~~token_id~~ `access_token` and decode it & validate couple of things mentioned here [OpenID draft-spec draft 22 id.token.validation](http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation). 
 
 ```
 access_token (Before):
