@@ -59,22 +59,31 @@ Validate client_id is actually your app's id. Expiration (exp) is at a later dat
 * The access_token you get won't be able to do anything other than get user's profile (open id aspect).
 * ***This passport-cloudfoundry-openidconnect*** already does all these things for you.
 * Accurate as of Jan 8th 2012.
-For more details, please refer:
 
-***Blogs***
-
-* [http://blog.cloudfoundry.org/2012/07/23/uaa-intro/](Introducing the UAA and Security for Cloud Foundry)
-* [http://blog.cloudfoundry.org/2012/07/24/high-level-features-of-the-uaa/](High Level Features of the UAA)
-* [http://blog.cloudfoundry.org/2012/11/05/how-to-integrate-an-application-with-cloud-foundry-using-oauth2/](How to Integrate an Application with Cloud Foundry using OAuth2)
-
-***UAA API details***
-
-* [https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst](User Account and Authentication Service APIs)
-
-####CloudFoundry.com 's default endpoints
+####CloudFoundry.com 's default endpoints####
 * Authorize: [https://uaa.cloudfoundry.com/oauth/authorize](https://uaa.cloudfoundry.com/oauth/authoriz)
 * Token: [https://uaa.cloudfoundry.com/oauth/token](https://uaa.cloudfoundry.com/oauth/token)
 * User Info: [https://uaa.cloudfoundry.com/userinfo](https://uaa.cloudfoundry.com/userinfo)
+
+
+####For more, please refer:####
+
+***UAA related blogs***
+
+* [Introducing the UAA and Security for Cloud Foundry](http://blog.cloudfoundry.org/2012/07/23/uaa-intro/)
+* [High Level Features of the UAA](http://blog.cloudfoundry.org/2012/07/24/high-level-features-of-the-uaa/)
+* [How to Integrate an Application with Cloud Foundry using OAuth2](http://blog.cloudfoundry.org/2012/11/05/how-to-integrate-an-application-with-cloud-foundry-using-oauth2/)
+
+***UAA API details & Github***
+
+* [User Account and Authentication Service APIs doc](https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst)
+* [UAA Github](https://github.com/cloudfoundry/uaa)
+
+
+***OpenID Connect***
+
+* [OpenID.net website](http://openid.net)
+* [OpenID Basic-Connect spec](http://openid.net/specs/openid-connect-basic-1_0.html)
 
 
 # passport-cloudfoundry-openidconnect Installation
