@@ -1,4 +1,7 @@
 # passport-cloudfoundry-openidconnect
+ <p align='center'>
+<img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page3.png" height="400px"  />
+</p>
 
 [Passport](https://github.com/jaredhanson/passport) strategy for authenticating
 with [Cloud Foundry open PaaS](http://cloudfoundry.com/) using OpenID-Connect.
