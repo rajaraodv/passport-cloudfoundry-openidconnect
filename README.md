@@ -4,17 +4,17 @@
 with [Cloud Foundry open PaaS](http://cloudfoundry.com/) using OpenID-Connect.
 
 ##OpenID-Connect 
-
-####What is OpenID Connect (from [http://openid.net/connect/](http://openid.net/connect/))?
+(From: [http://openid.net/connect/](http://openid.net/connect/))
+####What is OpenID Connect ?
 OpenID Connect is a suite of lightweight specifications that provide a framework for identity interactions via REST like APIs. The simplest deployment of OpenID Connect allows for clients of all types including browser-based, mobile, and javascript clients, to request and receive information about identities and currently authenticated sessions. The specification suite is extensible, allowing participants to optionally also support encryption of identity data, discovery of the OpenID Provider, and advanced session management, including logout. 
 
-####How is OpenID Connect different than OpenID 2.0(from [http://openid.net/connect/](http://openid.net/connect/))?
+####How is OpenID Connect different than OpenID 2.0?
 OpenID Connect performs many of the same tasks as OpenID 2.0, but does so in a way that is API-friendly. OpenID Connect can also be extended to include more robust mechanisms for signing and encryption. Integration of OAuth 1.0a and OpenID 2.0 required an extension (called the OpenID/OAuth hybrid); in OpenID Connect, OAuth 2.0 capability is built into the protocol itself.
 
-####OpenID-Connect (my definition)
+##OpenID-Connect (my definition)
 It's OAuth 2.0, but acts like an OpenID. i.e. App-developers implement it just like we would do for OAuth 2.0, but the consumer will see it work like an openID.
 
-####Highlevel steps:
+##OpenID-Connect (High-level steps):
 1. Perform OAuth 2.0 as usual. And after authentication dance, your app will get an `access_token`, a `refresh_token` just like in OAuth 2.0 but in addition an extra token called `token_id`.  
 
 2. Then, we must take the `token_id` and decode it & validate couple of things mentioned here [OpenID draft-spec draft 22 id.token.validation](http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation)
@@ -30,20 +30,22 @@ BTW, the access_token you get won't be able to do anything other than get user's
 
 "The UAA is the identity management service for Cloud Foundry. It's primary role is as an OAuth2 provider, issuing tokens for client applications to use when they act on behalf of Cloud Foundry users. It can also authenticate users with their Cloud Foundry credentials, and can act as an SSO service using those credentials (or others). It has endpoints for managing user accounts and for registering OAuth2 clients, as well as various other management functions" - [https://github.com/cloudfoundry/uaa](https://github.com/cloudfoundry/uaa)
 
-Cloud Foundry UAA provides mainly OAuth 2.0 but supports a slight-variation of OpenID-Connect.
 
-####Highlevel steps:
+In essence, Cloud Foundry UAA provides mainly OAuth 2.0 but supports a slight-variation of OpenID-Connect and is easily extensible for other kinds of auth mechanisms.
+
+
+####High-level steps for UAA OpenID:
 
 0. Register your app to only have scope `openid` or during OAuth 2.0 dance, send `{scope: 'oauth.2.0'}`.
 1. Perform OAuth 2.0 as usual. And after authentication dance, your app will get an `access_token`, a `refresh_token` just like in OAuth 2.0 ~~but in addition an extra token called `token_id`~~.  `access_token` itself acts similar to `token_id`.
 
-2. Then, we must take the ~~`token_id` ~~ `access_token` and decode it & validate couple of things mentioned here [OpenID draft-spec draft 22 id.token.validation](http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation). 
+2. Then, we must take the ~~`token_id`~~ `access_token` and decode it & validate couple of things mentioned here [OpenID draft-spec draft 22 id.token.validation](http://openid.net/specs/openid-connect-basic-1_0.html#id.token.validation). 
 
 ```
 access_token (Before):
 abc.123.456
 
-Take everything after first "." (= "123.456") and do Base64-decode.
+Decode: Take everything after first "." (= "123.456") and do Base64-decode.
 
 acess_token (After)
 {"exp":1357672585,"user_name":"bla@yahoo.com","scope":["openid"],"email":"bla@yahoo.com","aud":["openid"],"jti":"123-c545-4775-ad27-123","user_id":"123-2c45-111-8f37-123","client_id":"YOUR_APP_ID"}
@@ -54,12 +56,28 @@ Validate client_id is actually your app's id. Expiration (exp) is at a later dat
 
 
 #####Notes: 
-* BTW, the access_token you get won't be able to do anything other than get user's profile (open id aspect).
-* ***passport-cloudfoundry-openidconnect*** already does all these things for you.
+* The access_token you get won't be able to do anything other than get user's profile (open id aspect).
+* ***This passport-cloudfoundry-openidconnect*** already does all these things for you.
 * Accurate as of Jan 8th 2012.
+For more details, please refer:
+
+***Blogs***
+
+* [http://blog.cloudfoundry.org/2012/07/23/uaa-intro/](Introducing the UAA and Security for Cloud Foundry)
+* [http://blog.cloudfoundry.org/2012/07/24/high-level-features-of-the-uaa/](High Level Features of the UAA)
+* [http://blog.cloudfoundry.org/2012/11/05/how-to-integrate-an-application-with-cloud-foundry-using-oauth2/](How to Integrate an Application with Cloud Foundry using OAuth2)
+
+***UAA API details***
+
+* [https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst](User Account and Authentication Service APIs)
+
+####CloudFoundry.com 's default endpoints
+* Authorize: [https://uaa.cloudfoundry.com/oauth/authorize](https://uaa.cloudfoundry.com/oauth/authoriz)
+* Token: [https://uaa.cloudfoundry.com/oauth/token](https://uaa.cloudfoundry.com/oauth/token)
+* User Info: [https://uaa.cloudfoundry.com/userinfo](https://uaa.cloudfoundry.com/userinfo)
 
 
-# Installation
+# passport-cloudfoundry-openidconnect Installation
 
     $ npm install passport-cloudfoundry-openidconnect
 
