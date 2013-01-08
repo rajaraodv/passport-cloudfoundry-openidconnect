@@ -52,7 +52,7 @@ acess_token (After)
 ```
 Validate client_id is actually your app's id. Expiration (exp) is at a later date. ~~Issuer(iss) is UAA (not supported yet).~~
 
-3. After the validation, we make a call to an endpoint to get user's profile `like: <uaa-server>/userinfo` end point. 
+4.After the validation, we make a call to an endpoint to get user's profile `like: <uaa-server>/userinfo` end point. 
 
 
 #####Notes: 
