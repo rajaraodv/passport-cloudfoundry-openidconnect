@@ -1,7 +1,7 @@
 var express = require('express'),
   passport = require('passport'),
   util = require('util'),
-  CloudFoundryStrategy = require('passport-cloudfoundry').Strategy;
+  CloudFoundryStrategy = require('passport-cloudfoundry-openidconnect').Strategy;
 
 //Set Cloud Foundry app's clientID
 var CF_CLIENT_ID = '--insert-cloudfoundry-client-id-here--';
@@ -111,7 +111,9 @@ app.get('/login', function(req, res) {
 //   request.  The first step in CloudFoundry authentication will involve
 //   redirecting the user to angellist.co.  After authorization, CloudFoundry
 //   will redirect the user back to this application at /auth/angellist/callback
-app.get('/auth/cloudfoundry', passport.authenticate('cloudfoundry'), function(req, res) {
+
+//Pass {scope: 'openid'}
+app.get('/auth/cloudfoundry', passport.authenticate('cloudfoundry', {'scope': 'openid'}), function(req, res) {
     // The request will be redirected to CloudFoundry for authentication, so this
     // function will not be called.
 });

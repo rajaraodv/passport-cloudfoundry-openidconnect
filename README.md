@@ -91,6 +91,8 @@ Validate client_id is actually your app's id. Expiration (exp) is at a later dat
 * [OpenID.net website](http://openid.net)
 * [OpenID Basic-Connect spec](http://openid.net/specs/openid-connect-basic-1_0.html)
 
+<br>
+-----
 
 # passport-cloudfoundry-openidconnect Installation
 

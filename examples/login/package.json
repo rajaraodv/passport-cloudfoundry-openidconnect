@@ -1,10 +1,10 @@
 {
-  "name": "passport-cloudfoundry-examples-login",
-  "version": "0.0.0",
-  "dependencies": {
-    "express": ">= 0.0.0",
-    "ejs": ">= 0.0.0",
-    "passport": ">= 0.0.0",
-    "passport-cloudfoundry-openidconnect": ">= 0.0.0"
-  }
+    "name": "passport-cloudfoundry-openidconnect-examples-login",
+    "version": "0.0.0",
+    "dependencies": {
+        "express": ">= 0.0.0",
+        "ejs": ">= 0.0.0",
+        "passport": ">= 0.0.0",
+        "passport-cloudfoundry-openidconnect": "*"
+    }
 }

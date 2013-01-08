@@ -10,7 +10,7 @@
     "bugs": {
         "url": "http://github.com/rajaraodv/passport-cloudfoundry-openidconnect/issues"
     },
-    "main": "./lib/passport-cloudfoundry",
+    "main": "./lib/passport-cloudfoundry-openidconnect",
     "dependencies": {
         "pkginfo": "0.2.x",
         "passport-oauth": "0.1.x"
