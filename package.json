@@ -1,6 +1,6 @@
 {
     "name": "passport-cloudfoundry-openidconnect",
-    "version": "0.1.4",
+    "version": "0.1.2",
     "description": "Cloud Foundry UAA OpenID-Connect authentication strategy for Passport.",
     "author": "Raja Rao DV <rajar@vmware.com>",
     "repository": {
@@ -43,5 +43,6 @@
         "example": "examples",
         "test": "test"
     },
-    "license": "BSD"
+    "license": "MIT",
+    "readmeFilename": "README.md"
 }

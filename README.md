@@ -67,8 +67,8 @@ Validate client_id is actually your app's id. Expiration (exp) is at a later dat
 * Accurate as of Jan 8th 2012.
 
 ####CloudFoundry.com 's default endpoints####
-* Authorize: [https://uaa.cloudfoundry.com/oauth/authorize](https://uaa.cloudfoundry.com/oauth/authoriz)
-* Token: [https://uaa.cloudfoundry.com/oauth/token](https://uaa.cloudfoundry.com/oauth/token)
+* Authorize: [https://login.cloudfoundry.com/oauth/authorize](https://login.cloudfoundry.com/oauth/authorize)
+* Token: [https://login.cloudfoundry.com/oauth/token](https://login.cloudfoundry.com/oauth/token)
 * User Info: [https://uaa.cloudfoundry.com/userinfo](https://uaa.cloudfoundry.com/userinfo)
 
 
@@ -293,7 +293,7 @@ var CF_CALLBACK_URL = '--insert-cloudfoundry--url--/auth/cloudfoundry/callback';
 <img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page1.png" height="400px" width="550px" />
 </p>
 
-####2. Your browser will be redirected to https://uaa.cloudfoundry.com/login (default auth url): ####
+####2. Your browser will be redirected to https://login.cloudfoundry.com/login (default auth url): ####
  <p align='center'>
 <img src="https://github.com/rajaraodv/passport-cloudfoundry-openidconnect/raw/master/examples/login/pics/page2.png" height="400px" width="550px" />
 </p>
